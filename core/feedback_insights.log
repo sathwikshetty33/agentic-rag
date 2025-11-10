@@ -1,0 +1,1086 @@
+2025-07-27 00:50:28,409 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 00:51:52,339 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 01:12:25,993 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 10:30:52,084 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 10:31:36,328 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 10:42:08,081 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 18:14:50,970 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 18:15:22,155 ERROR log Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/router/views.py", line 40, in chat_view
+    return render(request, "error.html", {"message": "Failed to initialize chat session."})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: error.html
+2025-07-27 18:20:59,263 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 18:33:09,280 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 20:13:13,714 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 20:13:38,611 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 20:13:47,123 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 20:14:52,681 ERROR log Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f4990c49a90>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4990c49a90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/router/views.py", line 32, in chat_view
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4990c49a90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-07-27 20:15:08,965 ERROR log Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f4990c25af0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4990c25af0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/router/views.py", line 32, in chat_view
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4990c25af0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-07-27 22:52:28,178 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 23:04:58,076 ERROR log Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fc627814ec0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc627814ec0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/router/views.py", line 32, in chat_view
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc627814ec0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-07-27 23:13:25,858 INFO autoreload Watching for file changes with StatReloader
+2025-07-27 23:21:04,023 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 23:21:04,028 ERROR views Cannot connect to FastAPI service
+2025-07-27 23:21:04,029 ERROR log Service Unavailable: /insights/generate-insights/
+2025-07-27 23:21:19,104 INFO views Received LangChain RAG feedback analysis request
+2025-07-27 23:21:32,897 ERROR log Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/router/views.py", line 32, in chat_view
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-07-27 23:21:55,957 ERROR log Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f7d426ba150>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7d426ba150>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/router/views.py", line 32, in chat_view
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7d426ba150>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-07-27 23:22:10,537 ERROR log Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/router/views.py", line 40, in chat_view
+    return render(request, "error.html", {"message": "Failed to initialize chat session."})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: error.html
+2025-07-28 00:01:20,645 INFO views Received LangChain RAG feedback analysis request
+2025-10-22 12:21:15,324 INFO autoreload Watching for file changes with StatReloader
+2025-10-22 12:31:49,877 INFO views Received LangChain RAG feedback analysis request
+2025-10-22 12:34:42,182 INFO views Received LangChain RAG feedback analysis request
+2025-11-03 19:35:32,391 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 19:44:27,650 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/authorization/views.py changed, reloading.
+2025-11-03 19:44:27,989 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 19:44:32,274 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/authorization/views.py changed, reloading.
+2025-11-03 19:44:32,586 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 19:44:36,788 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/authorization/views.py changed, reloading.
+2025-11-03 19:44:37,076 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 19:44:40,310 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/authorization/urls.py changed, reloading.
+2025-11-03 19:44:40,561 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 19:44:43,771 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/authorization/urls.py changed, reloading.
+2025-11-03 19:44:44,018 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 19:44:46,227 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/authorization/urls.py changed, reloading.
+2025-11-03 19:44:46,474 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:04,836 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:05,391 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:08,628 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:08,868 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:12,030 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:12,288 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:14,468 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:14,723 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:18,892 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:19,137 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:23,398 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:23,703 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:25,889 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:26,201 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:32,517 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:32,816 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:37,076 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:37,355 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:18:45,598 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:18:45,958 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:29,419 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:29,673 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:30,872 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:31,141 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:33,507 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:33,779 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:36,061 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:36,396 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:38,720 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:39,032 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:41,275 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:41,543 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:43,785 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:44,065 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:50,381 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:50,608 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:19:53,812 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:19:54,101 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:20:07,396 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:20:07,663 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:20:16,966 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:20:17,205 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:20:20,411 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:20:20,648 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:20:23,874 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:20:24,130 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:22:44,542 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:22:44,800 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:23:00,111 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:23:00,327 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:23:11,650 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:23:12,046 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:23:16,379 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:23:16,698 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:23:21,868 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:23:22,074 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:23:24,211 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:23:24,501 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:23:28,729 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:23:28,976 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:23:32,151 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:23:32,367 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:26:09,820 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/home/models.py changed, reloading.
+2025-11-03 20:26:10,067 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:26:12,265 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/home/models.py changed, reloading.
+2025-11-03 20:26:12,526 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:26:27,881 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:26:28,140 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:06,081 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:06,404 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:09,654 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:09,973 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:13,198 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:13,464 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:14,638 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:14,926 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:17,078 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:17,336 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:40,723 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:40,965 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:44,195 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:44,437 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:46,688 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:46,957 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:49,235 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:49,472 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:43:57,771 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:43:58,006 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:00,209 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:00,517 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:04,777 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:05,031 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:09,352 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:09,596 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:48,099 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:48,330 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:49,576 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:49,798 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:51,994 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:52,273 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:56,537 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:56,807 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:44:59,031 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:44:59,263 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:45:02,511 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-03 20:45:02,788 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:45:26,174 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:45:26,421 INFO autoreload Watching for file changes with StatReloader
+2025-11-03 20:45:29,642 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/urls.py changed, reloading.
+2025-11-03 20:45:29,909 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 07:57:19,163 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 08:17:37,792 INFO views Received LangChain RAG feedback analysis request
+2025-11-04 08:17:37,811 ERROR views Cannot connect to FastAPI service
+2025-11-04 08:17:37,811 ERROR log Service Unavailable: /insights/generate-insights/
+2025-11-04 20:08:47,442 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:20:49,329 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:23:57,945 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:23:58,313 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:23:59,294 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:23:59,599 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:00,789 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:01,052 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:04,270 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:04,529 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:05,722 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:05,969 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:11,310 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:11,613 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:17,878 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:18,132 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:19,370 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:19,703 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:22,898 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:23,143 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:29,142 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:29,367 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:37,543 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:37,781 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:38,978 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:39,207 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:24:49,428 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:24:49,656 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:25:14,783 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:25:15,057 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:25:17,213 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:25:17,473 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:25:20,641 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:25:20,878 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:25:55,204 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:25:55,438 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:39:22,848 ERROR log Internal Server Error: /events/chat/3/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/events/views.py", line 342, in get
+    return render(request, "error.html", {"message": "Failed to initialize chat session."})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: error.html
+2025-11-04 22:39:23,968 ERROR log Internal Server Error: /events/chat/3/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/events/views.py", line 342, in get
+    return render(request, "error.html", {"message": "Failed to initialize chat session."})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: error.html
+2025-11-04 22:39:46,942 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:39:47,286 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:39:49,508 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:39:49,788 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:39:53,108 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:39:53,378 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:39:56,817 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:39:57,086 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:01,325 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:01,568 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:02,809 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:03,054 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:04,975 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:05,237 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:07,511 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:07,794 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:11,030 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:11,308 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:13,558 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:13,872 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:29,311 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:29,545 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:31,766 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:40:32,101 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:40:39,773 ERROR log Internal Server Error: /events/chat/1/
+2025-11-04 22:40:40,965 ERROR log Internal Server Error: /events/chat/1/
+2025-11-04 22:43:06,936 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:43:24,593 ERROR log Internal Server Error: /events/chat/1/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7ff7cad55e20>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff7cad55e20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/events/views.py", line 334, in get
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff7cad55e20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-11-04 22:43:24,623 ERROR log Internal Server Error: /events/chat/1/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7ff7cae274d0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff7cae274d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/events/views.py", line 334, in get
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff7cae274d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-11-04 22:45:45,597 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:45:45,956 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:45:49,238 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:45:49,526 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:45:55,786 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:45:56,050 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:45:59,313 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:45:59,633 INFO autoreload Watching for file changes with StatReloader
+2025-11-04 22:46:00,877 INFO autoreload /home/sathwik/feedbackmanagementsystem/core/events/views.py changed, reloading.
+2025-11-04 22:46:01,193 INFO autoreload Watching for file changes with StatReloader
+2025-11-05 08:04:14,233 INFO autoreload Watching for file changes with StatReloader
+2025-11-05 08:12:45,322 ERROR log Internal Server Error: /events/chat/4/
+2025-11-05 08:12:45,447 ERROR log Internal Server Error: /events/chat/4/
+2025-11-05 09:19:34,496 INFO autoreload Watching for file changes with StatReloader
+2025-11-05 09:20:13,903 ERROR log Internal Server Error: /events/chat/1/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fc65b9fbf80>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc65b9fbf80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/events/views.py", line 334, in get
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc65b9fbf80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-11-05 09:20:14,018 ERROR log Internal Server Error: /events/chat/1/
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fc65b951a60>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc65b951a60>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/core/events/views.py", line 334, in get
+    res = requests.post(fastapi_url, json={
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /start_session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc65b951a60>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-11-07 20:54:26,899 INFO autoreload Watching for file changes with StatReloader
+2025-11-07 21:02:16,285 INFO autoreload /home/sathwik/feedbackmanagementsystem/.venv/lib/python3.12/site-packages/requests/status_codes.py changed, reloading.
+2025-11-07 21:02:16,975 INFO autoreload Watching for file changes with StatReloader
+2025-11-08 09:44:09,258 INFO autoreload Watching for file changes with StatReloader
+2025-11-08 15:06:12,265 INFO autoreload Watching for file changes with StatReloader

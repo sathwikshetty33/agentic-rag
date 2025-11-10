@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Campus Events</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #f5f5f5; */
+             background-color:#d8d7d7;
+            color: #333;
+        }
+
+        header {
+            background-color: #1a237e;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+        }
+
+        .logo-title{
+            display:flex;
+            align-items:center;
+            gap:0.5rem;
+        }
+
+        .logo{
+            height:40px
+        }
+      
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .dashboard-btn {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .dashboard-btn:hover {
+            background-color: #303f9f;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .dashboard-header {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #3f51b5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .user-details h2 {
+            margin: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-type {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .events-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .events-filters {
+            display: flex;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .filter-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-button.active {
+            background-color: #3f51b5;
+            color: white;
+            border-color: #3f51b5;
+        }
+
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 1rem;
+        }
+
+        .event-body {
+            padding: 1rem;
+        }
+
+        .event-footer {
+            padding: 1rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .event-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .event-visibility {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .logout-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #3f51b5;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .auth-error {
+            text-align: center;
+            padding: 2rem;
+            background-color: #ffebee;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .auth-error h2 {
+            color: #c62828;
+        }
+
+        .auth-error button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .event-status {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-ongoing {
+            color: #388e3c;
+        }
+
+        .status-past {
+            color: #d32f2f;
+        }
+
+        .status-upcoming {
+            color: #1976d2;
+        }
+
+        .attend-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .attend-btn:hover {
+            background-color: #388e3c;
+        }
+
+        .attend-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .notification.success {
+            background-color: #4caf50;
+        }
+
+        .notification.error {
+            background-color: #f44336;
+        }
+
+        .show-notification {
+            opacity: 1;
+        }
+
+        .tab-container {
+            margin-bottom: 2rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #e0e0e0;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button.active {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .events-list {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .user-info {
+                flex-direction: column;
+                margin-bottom: 1rem;
+            }
+
+            .user-avatar {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .events-filters {
+                flex-wrap: wrap;
+            }
+
+            .header-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+           :root {
+      --primary-color: #4a90e2;
+      --secondary-color: #f4f6f8;
+      --text-color: #333;
+      --footer-bg: #222;
+      --footer-text: #ddd;
+      --footer-link-hover: #4a90e2;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+    .footer {
+        margin-top:50px;
+      background-color: rgb(43, 43, 44);
+      color: white;
+      padding: 40px 20px 20px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .footer-section {
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+    .footer h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      color:#e9410e;
+    }
+    .footer p {
+      line-height: 1.5;
+      font-size: 0.95rem;
+      margin: 0 0 10px 0;
+      max-width: 320px;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .footer a:hover {
+      color: var(--footer-link-hover);
+      text-decoration: underline;
+    }
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+    .footer-contact p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-contact svg {
+      fill: var(--primary-color);
+      width: 18px;
+      height: 18px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 8px;
+    }
+    .footer-social a {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      color: white;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .footer-social a:hover {
+      background-color: #357abd;
+    }
+    .footer-bottom {
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      margin-top: 30px;
+      padding-top: 15px;
+      text-align: center;
+      font-size: 0.85rem;
+      color:white;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        flex-direction: column;
+        padding: 30px 15px 15px 15px;
+      }
+      .footer-section {
+        min-width: unset;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <header>
+        <div class="logo-title">
+        <img src="https://drive.google.com/uc?id=1fr9qQSUL7ui0SvNfLqviJzJHbo1EaPtA" alt ="logo" />
+      
+        <h1>FeedTrack</h1>
+          </div>
+        <div class="header-buttons">
+            <a href="/admin-dashboard/" class="dashboard-btn">Events Dashboard</a>
+             <!-- Hide the button by default -->
+            <!-- <a href="/admin-dashboard/" class="dashboard-btn" style="display: none;">Events Dashboard</a> -->
+
+            <div id="userStatus"></div>
+        </div>
+    </header>
+
+    <div class="container" id="dashboardContainer">
+        <!-- Content will be loaded dynamically -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            authenticateUser();
+        });
+
+        function authenticateUser() {
+            const studentToken = localStorage.getItem('studentToken');
+            const teacherToken = localStorage.getItem('staffToken');
+            const adminToken = localStorage.getItem('adminToken');
+            
+            if (!studentToken && !teacherToken && !adminToken) {
+                showAuthError('No authentication token found. Please login first.');
+                return;
+            }
+            
+            // Check if student token is valid
+            if (studentToken) {
+                checkUserType('student', studentToken);
+            } 
+            // Check if teacher token is valid
+            else if (teacherToken) {
+                checkUserType('teacher', teacherToken);
+            }
+            // For admin, we'll just assume the token is valid for this example
+            else if (adminToken) {
+                loadDashboard('admin');
+            }
+        }
+
+        function checkUserType(type, token) {
+            const endpoint = type === 'student' ? '/auth/student-check/' : '/auth/teacher-check/';
+            
+            fetch(endpoint, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Invalid ${type} token`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                loadDashboard(type);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showAuthError(`Authentication failed: ${error.message}`);
+            });
+        }
+
+        function showAuthError(message) {
+            const dashboardContainer = document.getElementById('dashboardContainer');
+            
+            dashboardContainer.innerHTML = `
+                <div class="auth-error">
+                    <h2>Authentication Error</h2>
+                    <p>${message}</p>
+                    <button onclick="redirectToLogin()">Go to Login Page</button>
+                </div>
+            `;
+            
+            hideLoading();
+        }
+
+        function redirectToLogin() {
+            window.location.href = '/index/';  // Redirect to the login page
+        }
+
+        function loadDashboard(userType) {
+            const dashboardContainer = document.getElementById('dashboardContainer');
+            const userStatus = document.getElementById('userStatus');
+            
+            // Create user avatar initial based on userType
+            const initialLetter = userType.charAt(0).toUpperCase();
+            
+            dashboardContainer.innerHTML = `
+                <div class="dashboard-header">
+                    <div class="user-info">
+                        <div class="user-avatar">${initialLetter}</div>
+                        <div class="user-details">
+                            <h2>Welcome back!</h2>
+                            <span class="user-type">${userType.charAt(0).toUpperCase() + userType.slice(1)}</span>
+                        </div>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="available">Available Events</button>
+                        <button class="tab-button" data-tab="attended">Attended Events</button>
+                    </div>
+                </div>
+
+                <div id="available-events" class="events-section">
+                    <h2>Available Events</h2>
+                    <div class="events-filters">
+                        <button class="filter-button active" data-filter="all">All Events</button>
+                        <button class="filter-button" data-filter="upcoming">Upcoming</button>
+                        <button class="filter-button" data-filter="ongoing">Ongoing</button>
+                        <button class="filter-button" data-filter="past">Past Events</button>
+                    </div>
+                    <div class="events-list" id="eventsList">
+                        <p>Loading events...</p>
+                    </div>
+                </div>
+
+                <div id="attended-events" class="events-section" style="display: none;">
+                    <h2>Events You've Attended</h2>
+                    <div class="events-list" id="attendedEventsList">
+                        <p>Loading attended events...</p>
+                    </div>
+                </div>
+            `;
+            
+            userStatus.innerHTML = `
+                <span>${userType.charAt(0).toUpperCase() + userType.slice(1)} Dashboard</span>
+            `;
+            
+            // Load events for the authenticated user
+            loadUserEvents(userType);
+            
+            // Setup event filters
+            setupEventFilters();
+            
+            // Setup tab switching
+            setupTabs();
+            
+            // Hide loading overlay
+            hideLoading();
+        }
+
+        function setupTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    if (tabId === 'available') {
+                        document.getElementById('available-events').style.display = 'block';
+                        document.getElementById('attended-events').style.display = 'none';
+                    } else if (tabId === 'attended') {
+                        document.getElementById('available-events').style.display = 'none';
+                        document.getElementById('attended-events').style.display = 'block';
+                        loadAttendedEvents();
+                    }
+                });
+            });
+        }
+
+        function loadUserEvents(userType) {
+            const eventsList = document.getElementById('eventsList');
+            let token;
+            
+            if (userType === 'student') {
+                token = localStorage.getItem('studentToken');
+            } else if (userType === 'teacher') {
+                token = localStorage.getItem('staffToken');
+            } else if (userType === 'admin') {
+                token = localStorage.getItem('adminToken');
+            }
+            
+            fetch('/events/events/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch events');
+                }
+                return response.json();
+            })
+            .then(events => {
+                eventsList.innerHTML = '';
+                
+                if (events.length === 0) {
+                    eventsList.innerHTML = '<p>No events available for you at this time.</p>';
+                    return;
+                }
+                
+                // Store events in a data attribute for filtering
+                eventsList.setAttribute('data-events', JSON.stringify(events));
+                
+                // Display all events initially
+                displayEvents(events);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                eventsList.innerHTML = '<p>Failed to load events. Please try again later.</p>';
+            });
+        }
+
+        function loadAttendedEvents() {
+            const attendedEventsList = document.getElementById('attendedEventsList');
+            let token;
+            
+            if (localStorage.getItem('studentToken')) {
+                token = localStorage.getItem('studentToken');
+            } else if (localStorage.getItem('staffToken')) {
+                token = localStorage.getItem('staffToken');
+            } else if (localStorage.getItem('adminToken')) {
+                token = localStorage.getItem('adminToken');
+            }
+            
+            fetch('/events/attended-events/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch attended events');
+                }
+                return response.json();
+            })
+            .then(events => {
+                attendedEventsList.innerHTML = '';
+                
+                if (events.length === 0) {
+                    attendedEventsList.innerHTML = '<p>You have not attended any events yet.</p>';
+                    return;
+                }
+                
+                // Display attended events
+                events.forEach(event => {
+                    const startTime = new Date(event.start_time);
+                    const endTime = new Date(event.end_time);
+                    
+                    const eventCard = document.createElement('div');
+                    eventCard.className = 'event-card';
+                    
+                    eventCard.innerHTML = `
+                        <div class="event-header">
+                            <h3>${event.name}</h3>
+                        </div>
+                        <div class="event-body">
+                            <p>${event.description}</p>
+                            <p class="event-time">
+                                <strong>Start:</strong> ${startTime.toLocaleString()}<br>
+                                <strong>End:</strong> ${endTime.toLocaleString()}
+                            </p>
+                            <span class="event-visibility">${getVisibilityLabel(event.visibility)}</span>
+                        </div>
+                        <div class="event-footer">
+                            <span>Attendance Confirmed</span>
+                        </div>
+                    `;
+                    
+                    attendedEventsList.appendChild(eventCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                attendedEventsList.innerHTML = '<p>Failed to load attended events. Please try again later.</p>';
+            });
+        }
+            // Show/hide Events Dashboard button based on user type
+// const eventsBtn = document.querySelector('.dashboard-btn');
+// if(eventsBtn)
+// if (userType === 'teacher') {
+//     eventsBtn.style.display = 'inline-block';
+// } else {
+//     eventsBtn.style.display = 'none';
+// }
+
+  // Get the user type from localStorage
+  const userType = localStorage.getItem('userType'); // 'teacher' or 'student'
+
+  // Find the Events Dashboard button
+  const eventsBtn = document.querySelector('.dashboard-btn');
+
+  // Show it only if the user is a teacher
+  if (userType === 'teacher') {
+    eventsBtn.style.display = 'inline-block';
+  } else  {
+    eventsBtn.style.display = 'none';
+  }
+
+
+
+
+
+
+
+
+        function displayEvents(events) {
+            const eventsList = document.getElementById('eventsList');
+            eventsList.innerHTML = '';
+            
+            if (events.length === 0) {
+                eventsList.innerHTML = '<p>No events match the selected filter.</p>';
+                return;
+            }
+            
+            events.forEach(event => {
+                const startTime = new Date(event.start_time);
+                const endTime = new Date(event.end_time);
+                const now = new Date();
+                
+                const isUpcoming = startTime > now;
+                const isPast = endTime < now;
+                const isOngoing = startTime <= now && endTime >= now;
+                
+                const statusClass = isUpcoming ? 'upcoming' : isPast ? 'past' : 'ongoing';
+                const statusText = isUpcoming ? 'Upcoming' : isPast ? 'Past Event' : 'Ongoing';
+                const statusClassName = isUpcoming ? 'status-upcoming' : isPast ? 'status-past' : 'status-ongoing';
+                
+                const eventCard = document.createElement('div');
+                eventCard.className = `event-card ${statusClass}`;
+                eventCard.setAttribute('data-event-id', event.id);
+                
+                // Main content of the event card
+                let eventContent = `
+                    <div class="event-header">
+                        <h3>${event.name}</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-status ${statusClassName}">${statusText}</div>
+                        <p>${event.description}</p>
+                        <p class="event-time">
+                            <strong>Start:</strong> ${startTime.toLocaleString()}<br>
+                            <strong>End:</strong> ${endTime.toLocaleString()}
+                        </p>
+                        <span class="event-visibility">${getVisibilityLabel(event.visibility)}</span>
+                    </div>
+                `;
+                
+                // Add appropriate footer based on event status
+                if (isOngoing) {
+                    eventContent += `
+                        <div class="event-footer">
+                            <button class="attend-btn" onclick="markEventAttended(${event.id})">Mark as Attended</button>
+                            <a href="${event.form_url}" target="_blank">Registration Form</a>
+                        </div>
+                    `;
+                } else if (isUpcoming) {
+                    eventContent += `
+                        <div class="event-footer">
+                            <span>Registration will open soon</span>
+                        </div>
+                    `;
+                } else { // Past event
+                    eventContent += `
+                        <div class="event-footer">
+                            <button class="attend-btn" onclick="markEventAttended(${event.id})">Mark as Attended</button>
+                            <span>Event has ended</span>
+                        </div>
+                    `;
+                }
+                
+                eventCard.innerHTML = eventContent;
+                eventsList.appendChild(eventCard);
+            });
+        }
+
+        function markEventAttended(eventId) {
+            let token;
+            
+            if (localStorage.getItem('studentToken')) {
+                token = localStorage.getItem('studentToken');
+            } else if (localStorage.getItem('staffToken')) {
+                token = localStorage.getItem('staffToken');
+            } else if (localStorage.getItem('adminToken')) {
+                token = localStorage.getItem('adminToken');
+            }
+            
+            // Show loading
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.style.display = 'flex';
+            
+            fetch(`/events/claim-event/${eventId}/`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Token ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.indexOf("application/json") !== -1) {
+                    return response.json().then(data => {
+                        if (!response.ok) {
+                            throw new Error(data.error || 'Failed to mark event as attended');
+                        }
+                        return data;
+                    });
+                } else {
+                    if (!response.ok) {
+                        throw new Error('Failed to mark event as attended');
+                    }
+                    return {};
+                }
+            })
+            .then(data => {
+                // Remove the event card from the list
+                const eventCard = document.querySelector(`.event-card[data-event-id="${eventId}"]`);
+                if (eventCard) {
+                    eventCard.remove();
+                }
+                
+                // Show success notification
+                showNotification('Event marked as attended successfully!', 'success');
+                
+                // Hide loading
+                hideLoading();
+                
+                // Refresh the available events list
+                loadUserEvents(getUserType());
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                
+                // Show error notification
+                showNotification(error.message, 'error');
+                
+                // Hide loading
+                hideLoading();
+            });
+        }
+
+        function getUserType() {
+            if (localStorage.getItem('studentToken')) {
+                return 'student';
+            } else if (localStorage.getItem('staffToken')) {
+                return 'teacher';
+            } else if (localStorage.getItem('adminToken')) {
+                return 'admin';
+            }
+            return '';
+        }
+
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            
+            // Make the notification visible
+            setTimeout(() => {
+                notification.classList.add('show-notification');
+            }, 100);
+            
+            // Hide the notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show-notification');
+            }, 3000);
+        }
+
+        function setupEventFilters() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Filter events
+                    filterEvents(filter);
+                });
+            });
+        }
+
+        function filterEvents(filter) {
+            const eventsList = document.getElementById('eventsList');
+            const eventsData = JSON.parse(eventsList.getAttribute('data-events'));
+            const now = new Date();
+            
+            let filteredEvents;
+            
+            if (filter === 'all') {
+                filteredEvents = eventsData;
+            } else if (filter === 'upcoming') {
+                filteredEvents = eventsData.filter(event => {
+                    const startTime = new Date(event.start_time);
+                    return startTime > now;
+                });
+            } else if (filter === 'ongoing') {
+                filteredEvents = eventsData.filter(event => {
+                    const startTime = new Date(event.start_time);
+                    const endTime = new Date(event.end_time);
+                    return startTime <= now && endTime >= now;
+                });
+            } else if (filter === 'past') {
+                filteredEvents = eventsData.filter(event => {
+                    const endTime = new Date(event.end_time);
+                    return endTime < now;
+                });
+            }
+            
+            displayEvents(filteredEvents);
+        }
+
+        function getVisibilityLabel(visibility) {
+            const visibilityMap = {
+                '1': 'Semester 1',
+                '2': 'Semester 2',
+                '3': 'Semester 3',
+                '4': 'Semester 4',
+                '5': 'Semester 5',
+                '6': 'Semester 6',
+                '7': 'Semester 7',
+                '8': 'Semester 8',
+                'anyone': 'Anyone',
+                'teachers': 'Teachers Only'
+            };
+            
+            return visibilityMap[visibility] || visibility;
+        }
+
+        function logout() {
+            // Clear all tokens from local storage
+          localStorage.removeItem('studentToken');
+    localStorage.removeItem('studentId');
+    localStorage.removeItem('staffToken');
+    localStorage.removeItem('teacherId');
+    localStorage.removeItem('adminId');
+    localStorage.removeItem('userType');
+            
+            // Redirect to login page
+            window.location.href = '/index/';
+        }
+
+        function hideLoading() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.style.display = 'none';
+        }
+    </script>
+     <footer class="footer" role="contentinfo">
+    <div class="footer-section footer-about">
+      <h3>About FeedTrack</h3>
+      <p>"FeedTrack is a comprehensive feedback management platform tailored for department events. It empowers organizers to create tailored feedback forms, collect valuable responses, and gain actionable insights—enhancing the quality and impact of every event.</p>
+    </div>
+    <div class="footer-section footer-links">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="aboutus.html">Home</a></li>
+        <li><a href="createEvent.html">Create Feedback Form</a></li>
+        <li><a href="adminDashboard.html">Analyze Feedback</a></li>
+       
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section footer-contact">
+      <h3>Contact</h3>
+      <p>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path>
+        </svg>
+        CodeZero@gmail.com
+      </p>
+      <p>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21 11.36 11.36 0 0 0 3.55.57 1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A16 16 0 0 1 4 6a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.55 1 1 0 0 1-.21 1.11l-2.24 2.13z"></path>
+        </svg>
+        +91 6678898997
+      </p>
+      <div class="footer-social" aria-label="Social Media links">
+        <!-- <a href="#" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+        <a href="#" title="Twitter" aria-label="Twitter" target="_blank" rel="noopener noreferrer">t</a> -->
+        <a href="https://www.instagram.com/codezeroaiml/" title="Instagram" img src = "images/square-instagram-brands.svg"aria-label="Instagram" target="_blank" rel="noopener noreferrer">i</a>
+        <a href="https://www.linkedin.com/in/code-zero-4a3406334?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" img src ="images/linkedin-brands.svg" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 FeedTrack. All rights reserved. | Designed by CodeZero Team
+    </div>
+  </footer>
+</body>
+</html>
