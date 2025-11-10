@@ -1,4 +1,4 @@
-# Feedback Management System 🎯
+# Agentic RAG System 🎯
 
 A sophisticated feedback analysis platform built with Python and Django, leveraging AI-powered insights to transform raw feedback data into actionable intelligence.
 
@@ -137,7 +137,7 @@ graph LR
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/sathwikshetty33/FeedbackManagementSystem.git
+git clone https://github.com/sathwikshetty33/agemtic-rag.git
 cd FeedbackManagementSystem
 ```
 
@@ -235,7 +235,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Sathwik Shetty - [@sathwikshetty33](https://github.com/sathwikshetty33)
 
-Project Link: [https://github.com/sathwikshetty33/FeedbackManagementSystem](https://github.com/sathwikshetty33/FeedbackManagementSystem)
+Project Link: [https://github.com/sathwikshetty33/agentic-rag](https://github.com/sathwikshetty33/agentic-rag)
 
 ---
-Last Updated: 2025-06-05 17:42:06 UTC
